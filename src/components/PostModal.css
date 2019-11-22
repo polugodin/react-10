@@ -1,0 +1,232 @@
+.post-modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 2;
+
+  display: flex;
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  overflow-y: scroll;
+}
+
+.post-modal {
+  position: relative;
+
+  display: flex;
+  max-width: 1280px;
+  margin: auto;
+  padding: 32px;
+  box-sizing: border-box;
+
+  background: #ffffff;
+}
+
+.post-modal__content {
+  flex: 0 1 650px;
+  margin-right: 36px;
+}
+
+.post-modal__content__image {
+  max-width: 100%;
+}
+
+.post-modal__content__description {
+  padding: 24px 0 42px;
+
+  font-size: 14px;
+  line-height: 24px;
+}
+
+.post-modal__content__controls-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.post-modal__content__control {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: calc(50% - 15px);
+  height: 60px;
+
+  background: #ffffff;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0px 0px 4px rgba(8, 35, 48, 0.2);
+}
+
+.post-modal__content__control_likes {
+  cursor: pointer;
+}
+
+.post-modal__content__control__icon {
+  margin-right: 13px;
+}
+
+.post-modal__comments-container {
+  flex: 0 1 530px;
+}
+
+.post-modal__comment {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  padding-top: 24px;
+
+  font-size: 14px;
+  line-height: 16px;
+
+  border-bottom: 1px solid rgba(42, 73, 94, 0.12);
+}
+
+.post-modal__comment__username {
+  margin-right: 24px;
+
+  color: var(--myblue);
+}
+
+.post-modal__comment__delete {
+  width: 20px;
+  height: 20px;
+  margin-left: 4px;
+
+  background-color: transparent;
+  background-image: url('../../sources/ui/delete-comment.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  opacity: 0;
+
+  outline: none;
+  cursor: pointer;
+}
+
+.post-modal__comment:hover > .post-modal__comment__delete {
+  opacity: 1;
+}
+
+.post-modal__comment__delete:hover {
+  background-image: url('../../sources/ui/delete-comment-active.svg');
+}
+
+.post-modal__input-container {
+  position: relative;
+  height: 50px;
+  margin-top: 20px;
+  box-sizing: border-box;
+
+  border-bottom: 1px solid rgba(42, 73, 94, 0.12);
+}
+
+.post-modal__input-container__input {
+  display: block;
+  width: 100%;
+  padding: 21px 0 8px;
+
+  font-size: 14px;
+  line-height: 16px;
+  color: #000000;
+
+  border: none;
+
+  outline: none;
+}
+
+.post-modal__input-container__label {
+  position: absolute;
+  top: 22px;
+  left: 0;
+
+  font-size: 14px;
+  line-height: 16px;
+  color: rgba(0, 0, 0, 0.25);
+
+  transition: 0.25s top ease-in-out, 0.25s font-size ease-in-out;
+
+  pointer-events: none;
+}
+
+.post-modal__input-container__input:focus + .post-modal__input-container__label,
+.post-modal__input-container__input:valid + .post-modal__input-container__label {
+  top: 2px;
+
+  font-size: 10px;
+}
+
+.post-modal__control-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 68px;
+}
+
+.post-modal__submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 164px;
+  height: 44px;
+  margin-right: 5px;
+
+  color: #fff;
+
+  background: var(--myblue);
+  border: none;
+  border-radius: 4px;
+
+  cursor: pointer;
+}
+
+.post-modal__reset {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 164px;
+  height: 44px;
+
+  color: var(--myblue);
+
+  background: transparent;
+  border: none;
+}
+
+.post-modal__reset:not(:disabled) {
+  cursor: pointer;
+}
+
+@media (min-width: 1079px) and (max-width: 1680px) {
+  .post-modal {
+    width: 1024px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 880px) {
+  .post-modal {
+    display: block;
+    width: 540px;
+    max-width: 100%;
+  }
+  .post-modal__content {
+    margin-right: 0;
+  }
+  .post-modal__comments-container {
+    padding-top: 40px;
+  }
+  .post-modal__control-container {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 580px) {
+  .post-modal {
+    padding: 20px;
+  }
+}
