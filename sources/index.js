@@ -13,13 +13,13 @@ const deleteComment = (userId, password, postId, commentId) =>
 const showError = err => console.error(err);
 
 const formatHashTags = text =>
-  text.split(/(?=#)|(?<=#\w+\b)/).map((item, index) =>
+  text.split(' ').map((item, index) =>
     item[0] === '#' ? (
       <span key={index} className="post__hashtag">
         {item}
       </span>
     ) : (
-      item
+      item + ' '
     )
   );
 
